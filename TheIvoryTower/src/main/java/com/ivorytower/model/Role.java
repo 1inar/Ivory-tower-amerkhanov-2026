@@ -1,7 +1,9 @@
 package com.ivorytower.model;
 
 public enum Role {
-    POET, CRITIC, ADMIN;
+    POET,
+    CRITIC,
+    ADMIN;
 
     public boolean canReview() {
         return this == CRITIC || this == ADMIN;
