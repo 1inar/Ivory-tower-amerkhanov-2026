@@ -59,3 +59,5 @@ CREATE TABLE highlights (
                             PRIMARY KEY (user_id, poem_id, line_no)
 );
 CREATE INDEX idx_highlights_poem ON highlights(poem_id);
+
+ALTER TABLE users ADD COLUMN critic_blocked BOOLEAN NOT NULL DEFAULT FALSE;

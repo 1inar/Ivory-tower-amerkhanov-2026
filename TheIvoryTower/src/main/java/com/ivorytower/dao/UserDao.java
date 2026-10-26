@@ -19,4 +19,5 @@ public interface UserDao {
     List<User> findAll(int limit, int offset);
     int count();
     void delete(long id);
+    void updateCriticBlocked(long id, boolean blocked);
 }

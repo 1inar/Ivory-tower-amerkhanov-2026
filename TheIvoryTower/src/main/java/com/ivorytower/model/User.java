@@ -10,6 +10,7 @@ public class User {
     private String passwordHash;
     private Role role = Role.POET;
     private boolean emailVerified;
+    private boolean criticBlocked;
     private String bio;
     private LocalDateTime createdAt;
 
@@ -65,6 +66,14 @@ public class User {
 
     public void setEmailVerified(boolean emailVerified) {
         this.emailVerified = emailVerified;
+    }
+
+    public boolean isCriticBlocked() {
+        return criticBlocked;
+    }
+
+    public void setCriticBlocked(boolean criticBlocked) {
+        this.criticBlocked = criticBlocked;
     }
 
     public String getBio() {

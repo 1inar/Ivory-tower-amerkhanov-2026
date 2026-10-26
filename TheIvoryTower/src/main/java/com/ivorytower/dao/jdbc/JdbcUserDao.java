@@ -150,6 +150,11 @@ public class JdbcUserDao extends JdbcSupport implements UserDao {
         u.setEmailVerified(rs.getBoolean("email_verified"));
         u.setBio(rs.getString("bio"));
         u.setCreatedAt(rs.getTimestamp("created_at").toLocalDateTime());
+        u.setCriticBlocked(rs.getBoolean("critic_blocked"));
         return u;
+    }
+    @Override
+    public void updateCriticBlocked(long id, boolean blocked) {
+        update("UPDATE users SET critic_blocked = ? WHERE id = ?", blocked, id);
     }
 }
