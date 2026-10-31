@@ -1,0 +1,38 @@
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf" content="${csrf}">
+    <title><c:out value="${empty pageTitle ? 'Башня из слоновой кости' : pageTitle}"/></title>
+    <link rel="stylesheet" href="${ctx}/static/css/style.css">
+</head>
+<body>
+<header>
+    <a class="brand" href="${ctx}/">Башня из слоновой кости</a>
+    <nav>
+        <a href="${ctx}/top">Рейтинг</a>
+        <c:choose>
+            <c:when test="${not empty sessionScope.currentUser}">
+                <a href="${ctx}/poem/new">Новый стих</a>
+                <a href="${ctx}/favorites">Избранное</a>
+                <a href="${ctx}/poet?id=${sessionScope.currentUser.id}">Моя страница</a>
+                <c:if test="${sessionScope.currentUser.admin}"><a href="${ctx}/admin">Админка</a></c:if>
+                <form method="post" action="${ctx}/logout">
+                    <input type="hidden" name="_csrf" value="${csrf}">
+                    <button type="submit">Выйти</button>
+                </form>
+            </c:when>
+            <c:otherwise>
+                <a href="${ctx}/login">Войти</a>
+                <a href="${ctx}/register">Регистрация</a>
+            </c:otherwise>
+        </c:choose>
+    </nav>
+</header>
+<main>
+<c:if test="${not empty flashMessage}">
+    <p class="flash ${flashType}"><c:out value="${flashMessage}"/></p>
+</c:if>

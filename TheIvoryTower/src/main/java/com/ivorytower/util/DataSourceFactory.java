@@ -9,6 +9,7 @@ public class DataSourceFactory {
     public static HikariDataSource create(AppConfig cfg) {
         HikariConfig hc = new HikariConfig();
         hc.setJdbcUrl(cfg.get("db.url"));
+        hc.setDriverClassName("org.postgresql.Driver");
         hc.setUsername(cfg.get("db.user"));
         hc.setPassword(cfg.get("db.password"));
         hc.setMaximumPoolSize(cfg.getInt("db.pool.size"));

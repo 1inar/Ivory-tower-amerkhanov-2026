@@ -1,0 +1,65 @@
+* { box-sizing: border-box; }
+
+body { margin: 0; background: #FAF7F0; color: #3B3632; font: 16px/1.6 Georgia, serif; }
+a { color: #8F7740; }
+h1 { font-size: 1.8rem; margin: 0 0 12px; font-weight: normal; }
+h2 { font-size: 1.25rem; margin: 20px 0 8px; font-weight: normal; }
+main { max-width: 700px; margin: 0 auto; padding: 24px 20px; }
+
+/* Шапка и подвал */
+header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+    gap: 12px; padding: 12px 20px; background: #fff; border-bottom: 1px solid #E8E1D3; }
+header nav { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; }
+header form { margin: 0; }
+header button { background: none; color: #8F7740; border: none; padding: 0; }
+.brand { font-weight: bold; font-size: 1.2rem; text-decoration: none; color: #3B3632; }
+footer { text-align: center; padding: 20px; color: #8A8178; font-size: .9rem; }
+
+/* Формы */
+form { display: flex; flex-direction: column; gap: 10px; }
+label { display: flex; flex-direction: column; gap: 4px; }
+input, textarea { padding: 8px; border: 1px solid #E8E1D3; border-radius: 6px;
+    font: inherit; background: #fff; }
+textarea { width: 100%; }
+button { padding: 8px 16px; border: 1px solid #B79B5E; border-radius: 6px;
+    background: #B79B5E; color: #fff; font: inherit; cursor: pointer; }
+button:disabled { opacity: .6; cursor: default; }
+
+/* Вход и регистрация */
+.auth { max-width: 380px; margin: 40px auto; padding: 24px; background: #fff;
+    border: 1px solid #E8E1D3; border-radius: 10px; }
+.auth h1 { margin-top: 0; text-align: center; }
+.auth p { text-align: center; }
+.auth button { width: 100%; }
+
+/* Поиск */
+.search { flex-direction: row; margin-bottom: 16px; }
+.search input { flex: 1; }
+
+/* Стихи */
+article { padding: 16px 0; border-bottom: 1px solid #E8E1D3; }
+article h2 { margin: 0; font-size: 1.2rem; }
+.poem-body { margin: 20px 0; font-size: 1.15rem; }
+.line { min-height: 1.6em; }
+.actions { display: flex; gap: 14px; align-items: center; }
+.actions form { margin: 0; }
+
+/* Сообщения */
+.muted { color: #8A8178; font-size: .9rem; margin: 2px 0; }
+.err { color: #B5483A; font-size: .9rem; }
+.flash { padding: 10px 14px; border: 1px solid #E8E1D3; background: #fff; border-radius: 6px; }
+.flash.error { color: #B5483A; border-color: #E4BDB5; }
+
+button.toggle { background: #fff; color: #8F7740; }
+button.toggle.on { background: #B79B5E; color: #fff; }
+
+[data-can=true] .line { cursor: pointer; }
+[data-can=true] .line:hover { background: #F4EEDC; }
+.line.mine { background: #F1E8D2; border-bottom: 2px solid #B79B5E; }
+.cnt { color: #8F7740; margin-left: 6px; }
+
+.review { padding: 10px 0; border-bottom: 1px solid #E8E1D3; }
+blockquote { margin: 0 0 14px; padding-left: 14px; border-left: 3px solid #B79B5E; font-size: 1.1rem; }
+
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid #E8E1D3; }

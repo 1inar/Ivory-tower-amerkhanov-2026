@@ -1,0 +1,5 @@
+</main>
+<footer>Ivory Tower</footer>
+<script src="${ctx}/static/js/app.js"></script>
+</body>
+</html>
