@@ -63,3 +63,8 @@ blockquote { margin: 0 0 14px; padding-left: 14px; border-left: 3px solid #B79B5
 
 table { width: 100%; border-collapse: collapse; }
 th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid #E8E1D3; }
+
+form.row { flex-direction: row; align-items: center; }
+select { padding: 6px; border: 1px solid #E8E1D3; border-radius: 6px; font: inherit; background: #fff; }
+
+blockquote { margin: 0 0 14px; padding-left: 14px; border-left: 3px solid #B79B5E; font-size: 1.1rem; }

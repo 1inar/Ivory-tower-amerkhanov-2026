@@ -36,9 +36,6 @@ public class HomeServlet extends BaseServlet {
         req.setAttribute("hasPrev", page > 1);
         req.setAttribute("hasNext", q.isEmpty() && poems.size() == PAGE_SIZE);
         req.setAttribute("quotes", services().getHighlightService().quoteOfTower(5));
-        req.setAttribute("topPoets", services().getRatingService().top(5));
-        req.setAttribute("tags", services().getPoemService().allTags());
-        req.setAttribute("quotes", services().getHighlightService().quoteOfTower(5));
         forward(req, resp, "home.jsp");
     }
 }

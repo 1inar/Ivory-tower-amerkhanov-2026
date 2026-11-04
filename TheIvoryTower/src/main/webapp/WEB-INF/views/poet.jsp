@@ -14,6 +14,9 @@
     · очки: ${rating.totalScore}
 </p>
 <c:if test="${not empty poet.bio}"><p><c:out value="${poet.bio}"/></p></c:if>
+<c:if test="${sessionScope.currentUser.id == poet.id}">
+    <p><a href="${ctx}/profile/edit">Редактировать профиль</a></p>
+</c:if>
 
 <h2>Стихи (${rating.poemCount})</h2>
 <c:if test="${empty poems}"><p class="muted">Пока ничего не опубликовано.</p></c:if>

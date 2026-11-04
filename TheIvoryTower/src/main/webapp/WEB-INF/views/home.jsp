@@ -7,15 +7,17 @@
     <input name="q" placeholder="Поиск по названию, тексту или автору" value="<c:out value='${q}'/>">
     <button type="submit">Найти</button>
 </form>
+
+<%-- Цитатник башни --%>
 <c:if test="${not empty quotes}">
     <h2>Цитатник башни</h2>
-    <c:forEach items="${quotes}" var="q">
+    <c:forEach items="${quotes}" var="quote">
         <blockquote>
-            «<c:out value="${q.lineText}"/>»
+            «<c:out value="${quote.lineText}"/>»
             <div class="muted">
-                <a href="${ctx}/poet?id=${q.authorId}"><c:out value="${q.authorName}"/></a>,
-                <a href="${ctx}/poem?id=${q.poemId}"><c:out value="${q.poemTitle}"/></a>
-                · подчёркиваний: ${q.count}
+                <a href="${ctx}/poet?id=${quote.authorId}"><c:out value="${quote.authorName}"/></a>,
+                <a href="${ctx}/poem?id=${quote.poemId}"><c:out value="${quote.poemTitle}"/></a>
+                · подчёркиваний: ${quote.count}
             </div>
         </blockquote>
     </c:forEach>
