@@ -6,12 +6,11 @@
 <h1>Админка: пользователи</h1>
 
 <table>
-    <tr><th>Логин</th><th>Email</th><th>Почта</th><th>Роль</th><th></th></tr>
+    <tr><th>Логин</th><th>Email</th><th>Роль</th><th></th></tr>
     <c:forEach items="${users}" var="u">
         <tr>
             <td><a href="${ctx}/poet?id=${u.id}"><c:out value="${u.username}"/></a></td>
             <td><c:out value="${u.email}"/></td>
-            <td>${u.emailVerified ? 'да' : 'нет'}</td>
             <c:choose>
                 <c:when test="${u.id == sessionScope.currentUser.id}">
                     <td>${u.role}</td>

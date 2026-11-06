@@ -61,3 +61,6 @@ CREATE TABLE highlights (
 CREATE INDEX idx_highlights_poem ON highlights(poem_id);
 
 ALTER TABLE users ADD COLUMN critic_blocked BOOLEAN NOT NULL DEFAULT FALSE;
+
+DROP TABLE IF EXISTS email_tokens;
+ALTER TABLE users DROP COLUMN IF EXISTS email_verified;

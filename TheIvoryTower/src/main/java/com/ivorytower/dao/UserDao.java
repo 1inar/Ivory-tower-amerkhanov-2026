@@ -13,7 +13,6 @@ public interface UserDao {
     Optional<User> findByUsername(String username);
     boolean existsByEmail(String email);
     boolean existsByUsername(String username);
-    void markEmailVerified(long id);
     void updateRole(long id, Role role);
     void updateBio(long id, String bio);
     List<User> findAll(int limit, int offset);

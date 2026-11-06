@@ -65,11 +65,6 @@ public class JdbcUserDao extends JdbcSupport implements UserDao {
     }
 
     @Override
-    public void markEmailVerified(long id) {
-        update("UPDATE users SET email_verified = TRUE WHERE id = ?", id);
-    }
-
-    @Override
     public void updateRole(long id, Role role) {
         update("UPDATE users SET role = ? WHERE id = ?", role.name(), id);
     }
@@ -147,7 +142,6 @@ public class JdbcUserDao extends JdbcSupport implements UserDao {
         u.setEmail(rs.getString("email"));
         u.setPasswordHash(rs.getString("password_hash"));
         u.setRole(Role.valueOf(rs.getString("role")));
-        u.setEmailVerified(rs.getBoolean("email_verified"));
         u.setBio(rs.getString("bio"));
         u.setCreatedAt(rs.getTimestamp("created_at").toLocalDateTime());
         u.setCriticBlocked(rs.getBoolean("critic_blocked"));

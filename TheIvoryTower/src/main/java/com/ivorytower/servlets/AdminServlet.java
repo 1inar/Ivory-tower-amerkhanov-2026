@@ -45,11 +45,11 @@ public class AdminServlet extends BaseServlet {
             } else {
                 Flash.set(req.getSession(), "error", "Неизвестное действие");
             }
-        } catch (IllegalArgumentException e) {            // Role.valueOf не нашёл такую роль
+        } catch (IllegalArgumentException e) {
             Flash.set(req.getSession(), "error", "Неизвестная роль");
         } catch (ServiceException e) {
             Flash.set(req.getSession(), "error", e.getMessage());
         }
-        redirect(req, resp, "/admin?page=" + page);       // PRG
+        redirect(req, resp, "/admin?page=" + page);
     }
 }

@@ -40,7 +40,7 @@ public class LoginServlet extends BaseServlet {
             User user = services().getAuthService().login(email, req.getParameter("password"));
 
             HttpSession session = req.getSession();
-            req.changeSessionId();                       // защита от фиксации сессии
+            req.changeSessionId();
             session.setAttribute(Attr.CURRENT_USER, user);
             Flash.set(session, "ok", "С возвращением, " + user.getUsername() + "!");
 

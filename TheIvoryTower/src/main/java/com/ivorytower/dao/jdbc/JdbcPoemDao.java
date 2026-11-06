@@ -20,7 +20,6 @@ import java.util.Optional;
 
 public class JdbcPoemDao extends JdbcSupport implements PoemDao {
 
-    /** Общая часть всех выборок: стих + имя автора + число лайков + средняя оценка. */
     private static final String SELECT_BASE =
             "SELECT p.id, p.author_id, p.title, p.body, p.created_at, p.updated_at, "
                     + "       u.username AS author_name, "

@@ -25,7 +25,6 @@ public class AppContextListener implements ServletContextListener {
             dataSource = DataSourceFactory.create(cfg);
 
             UserDao userDao = new JdbcUserDao(dataSource);
-            EmailTokenDao tokenDao = new JdbcEmailTokenDao(dataSource);
             PoemDao poemDao = new JdbcPoemDao(dataSource);
             TagDao tagDao = new JdbcTagDao(dataSource);
             LikeDao likeDao = new JdbcLikeDao(dataSource);
@@ -34,14 +33,8 @@ public class AppContextListener implements ServletContextListener {
             HighlightDao highlightDao = new JdbcHighlightDao(dataSource);
             RatingDao ratingDao = new JdbcRatingDao(dataSource);
 
-            MailService mailService = cfg.getBoolean("mail.dev")
-                    ? new DevMailService()
-                    : new SmtpMailService(cfg.get("mail.host"), cfg.getInt("mail.port"),
-                    cfg.get("mail.user"), cfg.get("mail.password"),
-                    cfg.get("mail.from"));
-
             RatingService ratingService = new RatingService(ratingDao, userDao, cfg);
-            AuthService authService = new AuthService(userDao, tokenDao, mailService, cfg);
+            AuthService authService = new AuthService(userDao);
             PoemService poemService = new PoemService(poemDao, tagDao, likeDao, favoriteDao);
             ReactionService reactionService = new ReactionService(likeDao, favoriteDao, poemDao, ratingService);
             HighlightService highlightService = new HighlightService(highlightDao, poemDao, ratingService);

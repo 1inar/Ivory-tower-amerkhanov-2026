@@ -38,8 +38,7 @@ public class RegisterServlet extends BaseServlet {
         try {
             services().getAuthService().register(username, email,
                     req.getParameter("password"), req.getParameter("password2"));
-            Flash.set(req.getSession(), "ok",
-                    "Мы отправили письмо на " + email + ". Перейдите по ссылке из него, чтобы подтвердить почту.");
+            Flash.set(req.getSession(), "ok", "Регистрация прошла успешно. Теперь можно войти.");
             redirect(req, resp, "/login");
         } catch (ValidationException e) {
             req.setAttribute("errors", e.getErrors());
