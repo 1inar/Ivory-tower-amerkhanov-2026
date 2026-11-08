@@ -4,7 +4,7 @@ CREATE TABLE users (
                        email VARCHAR(120) UNIQUE NOT NULL,
                        password_hash VARCHAR(100) NOT NULL,
                        role VARCHAR(10) NOT NULL DEFAULT 'POET'
-                           CHECK (role IN ('POET','CRITIC','ADMIN')),
+                        CHECK (role IN ('POET','CRITIC','ADMIN')),
                        email_verified BOOLEAN NOT NULL DEFAULT FALSE,
                        bio TEXT,
                        created_at TIMESTAMP NOT NULL DEFAULT now()
@@ -60,7 +60,3 @@ CREATE TABLE highlights (
 );
 CREATE INDEX idx_highlights_poem ON highlights(poem_id);
 
-ALTER TABLE users ADD COLUMN critic_blocked BOOLEAN NOT NULL DEFAULT FALSE;
-
-DROP TABLE IF EXISTS email_tokens;
-ALTER TABLE users DROP COLUMN IF EXISTS email_verified;

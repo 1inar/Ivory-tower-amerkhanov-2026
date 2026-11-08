@@ -8,7 +8,6 @@
     <button type="submit">Найти</button>
 </form>
 
-<%-- Цитатник башни --%>
 <c:if test="${not empty quotes}">
     <h2>Цитатник башни</h2>
     <c:forEach items="${quotes}" var="quote">
